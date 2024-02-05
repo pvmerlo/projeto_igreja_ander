@@ -1,0 +1,84 @@
+
+###
+GET http://localhost:3000/pessoas
+
+
+###
+
+
+GET http://localhost:3000/pessoas/3
+
+
+###
+
+POST http://localhost:3000/pessoas
+Content-Type: application/json
+
+{
+    "nome": "ander",
+    "cpf":"1234567891",
+    "dataNascimento":"2020-01-01",
+    "sexo": "masculino"
+}
+
+
+###
+
+PATCH http://localhost:3000/pessoas/3
+Content-Type: application/json
+
+{
+    "nome": "joao",
+    "cpf":"1234567892",
+    "dataNascimento":"2020-01-01",
+    "sexo": "masculino"
+    }
+
+###
+
+DELETE http://localhost:3000/pessoas/1
+
+
+
+###
+GET http://localhost:3000/contatos
+
+
+###
+
+
+GET http://localhost:3000/contatos/2
+
+
+###
+
+POST http://localhost:3000/contatos
+Content-Type: application/json
+
+{
+    "celular": "123456789",
+    "telContato":"123456789",
+    "email":"ander@ander",
+    "pessoaId": 3
+    }
+
+
+###
+
+PATCH http://localhost:3000/contatos/
+Content-Type: application/json
+
+{
+    "celuar": "",
+    "telContato":"",
+    "email":"",
+    "pessoaId": ""
+    }
+
+###
+
+DELETE http://localhost:3000/contatos/1
+
+
+
+
