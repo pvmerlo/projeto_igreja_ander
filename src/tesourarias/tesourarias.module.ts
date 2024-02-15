@@ -1,10 +1,10 @@
-import { Module } from '@nestjs/common';
-import { TesourariasService } from './tesourarias.service';
-import { TesourariasController } from './tesourarias.controller';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { Module } from "@nestjs/common";
+import { TesourariasService } from "./tesourarias.service";
+import { TesourariasController } from "./tesourarias.controller";
+import { PrismaModule } from "../prisma/prisma.module";
 
 @Module({
-  imports: [PrismaService],
+  imports: [PrismaModule],
   controllers: [TesourariasController],
   providers: [TesourariasService],
 })

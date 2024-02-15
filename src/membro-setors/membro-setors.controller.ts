@@ -7,7 +7,7 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { MembroSetorsService } from './MembroSetorsService';
+import { MembroSetorsService } from './membro-setors.service';
 import { CreateMembroSetorDto } from './dto/create-membro-setor.dto';
 import { UpdateMembroSetorDto } from './dto/update-membro-setor.dto';
 
@@ -25,21 +25,32 @@ export class MembroSetorsController {
     return this.membroSetorsService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.membroSetorsService.findOne(+id);
+  @Get(':setorId/:membroId')
+  findOne(
+    @Param('setorId') setorId: number,
+    @Param('membroId') membroId: number,
+  ) {
+    return this.membroSetorsService.findOne(setorId, membroId);
   }
 
-  @Patch(':id')
+  @Patch(':setorId/:membroId')
   update(
-    @Param('id') id: string,
+    @Param('setorId') setorId: number,
+    @Param('membroId') membroId: number,
     @Body() updateMembroSetorDto: UpdateMembroSetorDto,
   ) {
-    return this.membroSetorsService.update(+id, updateMembroSetorDto);
+    return this.membroSetorsService.update(
+      setorId,
+      membroId,
+      updateMembroSetorDto,
+    );
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.membroSetorsService.remove(+id);
+  @Delete(':setorId/:membroId')
+  remove(
+    @Param('setorId') setorId: number,
+    @Param('membroId') membroId: number,
+  ) {
+    return this.membroSetorsService.remove(setorId, membroId);
   }
 }

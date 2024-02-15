@@ -1,10 +1,10 @@
-import { Module } from '@nestjs/common';
-import { MembroTurmasService } from './membro-turmas.service';
-import { MembroTurmasController } from './membro-turmas.controller';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { Module } from "@nestjs/common";
+import { MembroTurmasService } from "./membro-turmas.service";
+import { MembroTurmasController } from "./membro-turmas.controller";
+import { PrismaModule } from "../prisma/prisma.module";
 
 @Module({
-  imports: [PrismaService],
+  imports: [PrismaModule],
   controllers: [MembroTurmasController],
   providers: [MembroTurmasService],
 })

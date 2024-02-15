@@ -41,60 +41,81 @@ export class MembroSetorsService {
 
   async findOne(setorId: number, membroSetorId: number) {
     try {
-        const membroSetor = await this.prismaService.membroSetor.findFirst({
-    where: {
-      AND: [
-        {
-          setorId,
+      const membroSetor = await this.prismaService.membroSetor.findFirst({
+        where: {
+          AND: [
+            {
+              setorId,
+            },
+            {
+              membroSetorId,
+            },
+          ],
         },
-        {
-          membroSetorId,
-        },
-      ],
-    },
-  })
-} catch (error) {
-  console.error(error);
-  if (error.code === 'P2025') {
-    throw new NotFoundError(`membro setor ID ${} Não existe`);
-  }
-  throw error;
-}
-      }
-
-
-  async update(setorId: number,membroSetorId: number, updateMembroSetorDto: UpdateMembroSetorDto) {
-    try {
-        const membroSetor = await this.prismaService.membroSetor.update({
-          where: {
-            AND: [
-              {
-                setorId,
-              },
-              {
-                membroSetorId,
-              },
-            ],
-          },
-          data: updateMembroSetorDto,
-        });
+      });
+      return membroSetor;
     } catch (error) {
       console.error(error);
       if (error.code === 'P2025') {
-        throw new NotFoundError(`membro setor with ID ${id} not found`);
+        throw new NotFoundError(
+          `membro ${membroSetorId} no setor ${setorId} Não existe`,
+        );
       }
       throw error;
     }
   }
-  async remove(id: number) {
+
+  async update(
+    setorId: number,
+    membroSetorId: number,
+    updateMembroSetorDto: UpdateMembroSetorDto,
+  ) {
+    try {
+      const membroSetor = await this.prismaService.membroSetor.update({
+        where: {
+          AND: [
+            {
+              setorId,
+            },
+            {
+              membroSetorId,
+            },
+          ],
+        },
+        data: updateMembroSetorDto,
+      });
+      return membroSetor;
+    } catch (error) {
+      console.error(error);
+      if (error.code === 'P2025') {
+        throw new NotFoundError(
+          `membro ${membroSetorId} no setor ${setorId} Não existe`,
+        );
+      }
+      throw error;
+    }
+  }
+
+  async remove(setorId: number, membroSetorId: number) {
     try {
       return await this.prismaService.membroSetor.delete({
-        where: { id },
+        where: {
+          AND: [
+            {
+              setorId,
+            },
+            {
+              membroSetorId,
+            },
+          ],
+        },
       });
     } catch (error) {
       console.error(error);
       if (error.code === 'P2025') {
-        throw new NotFoundError(`membro setor with ID ${id} not found`);
+        throw new NotFoundError(
+          `membro ${membroSetorId} no setor ${setorId} Não existe`,
+        );
       }
       throw error;
     }

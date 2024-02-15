@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { MembroSetorsService } from './MembroSetorsService';
+import { MembroSetorsService } from './membro-setors.service';
 import { MembroSetorsController } from './membro-setors.controller';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaModule } from "../prisma/prisma.module";
 
 @Module({
-  imports: [PrismaService],
+  imports: [PrismaModule],
   controllers: [MembroSetorsController],
   providers: [MembroSetorsService],
 })

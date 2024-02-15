@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { TurmasService } from './turmas.service';
 import { CreateTurmaDto } from './dto/create-turma.dto';
 import { UpdateTurmaDto } from './dto/update-turma.dto';

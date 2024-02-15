@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { DizimosService } from './dizimos.service';
 import { CreateDizimoDto } from './dto/create-dizimo.dto';
 import { UpdateDizimoDto } from './dto/update-dizimo.dto';

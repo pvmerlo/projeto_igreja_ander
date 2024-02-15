@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { MembroTurmasService } from './membro-turmas.service';
 import { CreateMembroTurmaDto } from './dto/create-membro-turma.dto';
 import { UpdateMembroTurmaDto } from './dto/update-membro-turma.dto';
@@ -23,7 +31,10 @@ export class MembroTurmasController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateMembroTurmaDto: UpdateMembroTurmaDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateMembroTurmaDto: UpdateMembroTurmaDto,
+  ) {
     return this.membroTurmasService.update(+id, updateMembroTurmaDto);
   }
 

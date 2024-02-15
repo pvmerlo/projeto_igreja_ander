@@ -5,7 +5,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { NotFoundError } from 'src/pessoas/errors';
 
 @Injectable()
-export class TiposSacramentosService {
+export class TiposEventosService {
   constructor(private prismaService: PrismaService) {}
 
   async create(createTiposEventoDto: CreateTiposEventoDto) {

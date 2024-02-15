@@ -1,4 +1,3 @@
-import { turma } from '@prisma/client';
 import { Type } from 'class-transformer';
 import {
   IsDate,

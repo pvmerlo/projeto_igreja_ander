@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { CalendariosService } from './calendarios.service';
 import { CreateCalendarioDto } from './dto/create-calendario.dto';
 import { UpdateCalendarioDto } from './dto/update-calendario.dto';
@@ -23,7 +31,10 @@ export class CalendariosController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCalendarioDto: UpdateCalendarioDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateCalendarioDto: UpdateCalendarioDto,
+  ) {
     return this.calendariosService.update(+id, updateCalendarioDto);
   }
 

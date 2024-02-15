@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { TesourariasService } from './tesourarias.service';
 import { CreateTesourariaDto } from './dto/create-tesouraria.dto';
 import { UpdateTesourariaDto } from './dto/update-tesouraria.dto';
@@ -23,7 +31,10 @@ export class TesourariasController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTesourariaDto: UpdateTesourariaDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateTesourariaDto: UpdateTesourariaDto,
+  ) {
     return this.tesourariasService.update(+id, updateTesourariaDto);
   }
 

@@ -3,8 +3,8 @@ import {
   IsNotEmpty,
   IsPositive,
   IsString,
-  MaxLength,
-} from 'class-validator';
+  MaxLength
+} from "class-validator";
 
 export class CreateEnderecoDto {
   @MaxLength(50)
@@ -40,7 +40,7 @@ export class CreateEnderecoDto {
   @MaxLength(255)
   @IsString()
   @IsNotEmpty()
-  referencia?: string;
+  referencia?: string | null;
 
   @IsPositive()
   @IsInt()
